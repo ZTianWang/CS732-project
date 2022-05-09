@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 // Serve up the frontend's "build" directory, if we're running in production mode.
 if (process.env.NODE_ENV === 'production') {
-    console.log('Running in production!');
+    console.log('Running in production!');
 
     // Make all files in that folder public
     app.use(express.static(path.join(__dirname, '../../frontend/build')));
@@ -31,4 +31,7 @@ if (process.env.NODE_ENV === 'production') {
 
 // Start the DB running. Then, once it's connected, start the server.
 mongoose.connect('mongodb://localhost:27017/wnwn', { useNewUrlParser: true })
-    .then(() => app.listen(port, () => console.log(`App server listening on port ${port}!`)));
+    .then(() => {
+        console.log('App server connected to monodb!');
+        app.listen(port, () => console.log(`App server listening on port ${port}!`))
+    });

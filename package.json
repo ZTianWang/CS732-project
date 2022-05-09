@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node -r esm ./src/server.js",
+    "start": "nodemon -r esm ./src/server.js",
     "production": "cross-env NODE_ENV=production PORT=8080 node -r esm ./src/server.js",
-    "init-db": "node -r esm ./src/data/init-db.js"
+    "init-db": "node -r esm ./src/data/init-db.js",
+    "comment": "node -r esm ./src/data/post-data/comment-data/comment.js"
   },
   "keywords": [],
   "author": "",
