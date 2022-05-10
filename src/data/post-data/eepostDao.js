@@ -13,10 +13,10 @@ async function addEepost(eepost) {
 async function retrieveEepostListByEntryId(entry_id,pageNum) {
     if (pageNum === 1) {
         const count = await Eepost.find({entry_id : entry_id}).count()
-        const eeposts = await Eepost.find({entry_id : entry_id}).sort({createdAt:-1}).skip(2*(pageNum-1)).limit(2).populate('comments')
+        const eeposts = await Eepost.find({entry_id : entry_id}).sort({createdAt:-1}).limit(10).populate('comments')
         return {count,eeposts}
     }
-    return await Eepost.find({entry_id : entry_id}).sort({createdAt:-1}).skip(2*(pageNum-1)).limit(2).populate('comments')
+    return await Eepost.find({entry_id : entry_id}).sort({createdAt:-1}).skip(10*(pageNum-1)).limit(10).populate('comments')
 }
 
 async function deleteEepost(id) {

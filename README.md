@@ -1,6 +1,6 @@
 # CS732-project
 
-获取帖子列表：/eepost/getByEntry/:entry_id 
+获取帖子列表：/eepost/getByEntry/?entry_id=xxx$pageNum=1
 json数组或空数组
 第一页：{count:5,eeposts[{},{}]}
 第二页：[{},{}]
